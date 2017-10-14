@@ -1,11 +1,10 @@
-export const reset = elm => {
-  console.log('murali', elm);
+export const reset = (elm) => {
   elm.innerText = "?";
-  elm.className = elm.replace('disable', '');
-  elm.className = elm.replace('o', '');
-  elm.className = elm.replace('x', '');
-  elm.className = elm.replace('btn-primary', '');
-  elm.className = elm.replace('btn-info', '');
+  elm.className = elm.className.replace('disable', '');
+  elm.className = elm.className.replace('oBtn', '');
+  elm.className = elm.className.replace('xBtn', '');
+  elm.className = elm.className.replace('btn-primary', '');
+  elm.className = elm.className.replace('btn-info', '');
 };
 
 export const hasClass = (target, className) => {

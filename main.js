@@ -8,6 +8,8 @@ import reset, {
 document.addEventListener("DOMContentLoaded", () => {
   const x = "x";
   const o = "o";
+  let o_win = 0;
+  let x_win = 0;
   let count = 0;
   const boxes = document.querySelectorAll('#game li');
 
@@ -18,14 +20,14 @@ document.addEventListener("DOMContentLoaded", () => {
         reset(event.target);
       } else if (count == 8) {
         alert('Game over!');
-        reset(boxes[i]);
+        resetItems();
         count = 0
       } else if (hasClass(event.target, 'disable')) {
         alert('Already selected');
       } else if (count % 2 == 0) {
         count++;
         event.target.innerText = x;
-        event.target.className += ' disable x btn-primary';
+        event.target.className += ' disable xBtn btn-primary';
         if (checkX()) {
           alert('x wins');
           count = 0;
@@ -34,7 +36,7 @@ document.addEventListener("DOMContentLoaded", () => {
       } else {
         count++;
         event.target.innerText = o;
-        event.target.className += ' disable o btn-info';
+        event.target.className += ' disable oBtn btn-info';
         if (checkO()) {
           alert('O wins');
           count = 0;

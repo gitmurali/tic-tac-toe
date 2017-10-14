@@ -79,6 +79,8 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
 document.addEventListener("DOMContentLoaded", function () {
   var x = "x";
   var o = "o";
+  var o_win = 0;
+  var x_win = 0;
   var count = 0;
   var boxes = document.querySelectorAll('#game li');
 
@@ -89,14 +91,14 @@ document.addEventListener("DOMContentLoaded", function () {
         (0, _functions2.default)(event.target);
       } else if (count == 8) {
         alert('Game over!');
-        (0, _functions2.default)(boxes[i]);
+        (0, _functions.resetItems)();
         count = 0;
       } else if ((0, _functions.hasClass)(event.target, 'disable')) {
         alert('Already selected');
       } else if (count % 2 == 0) {
         count++;
         event.target.innerText = x;
-        event.target.className += ' disable x btn-primary';
+        event.target.className += ' disable xBtn btn-primary';
         if ((0, _functions.checkX)()) {
           alert('x wins');
           count = 0;
@@ -105,7 +107,7 @@ document.addEventListener("DOMContentLoaded", function () {
       } else {
         count++;
         event.target.innerText = o;
-        event.target.className += ' disable o btn-info';
+        event.target.className += ' disable oBtn btn-info';
         if ((0, _functions.checkO)()) {
           alert('O wins');
           count = 0;
@@ -131,13 +133,12 @@ Object.defineProperty(exports, "__esModule", {
   value: true
 });
 var reset = exports.reset = function reset(elm) {
-  console.log('murali', elm);
   elm.innerText = "?";
-  elm.className = elm.replace('disable', '');
-  elm.className = elm.replace('o', '');
-  elm.className = elm.replace('x', '');
-  elm.className = elm.replace('btn-primary', '');
-  elm.className = elm.replace('btn-info', '');
+  elm.className = elm.className.replace('disable', '');
+  elm.className = elm.className.replace('oBtn', '');
+  elm.className = elm.className.replace('xBtn', '');
+  elm.className = elm.className.replace('btn-primary', '');
+  elm.className = elm.className.replace('btn-info', '');
 };
 
 var hasClass = exports.hasClass = function hasClass(target, className) {
