@@ -19,7 +19,8 @@
   },
   "homepage": "https://github.com/gitmurali/tic-tac-toe#readme",
   "dependencies": {
-    "bootstrap": "^3.3.7"
+    "bootstrap": "^3.3.7",
+    "jquery": "^3.2.1"
   },
   "devDependencies": {
     "babel-core": "^6.26.0",

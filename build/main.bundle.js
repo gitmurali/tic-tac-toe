@@ -70,6 +70,101 @@
 "use strict";
 
 
+var _functions = __webpack_require__(1);
+
+var _functions2 = _interopRequireDefault(_functions);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+document.addEventListener("DOMContentLoaded", function () {
+  var x = "x";
+  var o = "o";
+  var count = 0;
+  var boxes = document.querySelectorAll('#game li');
+
+  for (var i = 0; i < boxes.length; i++) {
+    boxes[i].addEventListener('click', function (event) {
+      event.preventDefault();
+      if ((0, _functions.checkO)() || (0, _functions.checkX)()) {
+        (0, _functions2.default)(event.target);
+      } else if (count == 9) {
+        alert('tie');
+        (0, _functions2.default)(event.target);
+        count = 0;
+      } else if ((0, _functions.hasClass)(event.target, 'disable')) {
+        alert('Already selected');
+      } else if (count % 2 == 0) {
+        count++;
+        event.target.innerText = o;
+        event.target.className += ' disable o btn-primary';
+        if ((0, _functions.checkO)()) {
+          alert('O wins');
+          count = 0;
+          o_win++;
+        }
+      } else {
+        count++;
+        event.target.innerText = x;
+        event.target.className += ' disable x btn-info';
+        if ((0, _functions.checkX)()) {
+          alert('X wins');
+          count = 0;
+          x_win++;
+        }
+      }
+    });
+    document.getElementById("reset").addEventListener("click", function () {
+      (0, _functions.resetItems)();
+      count = 0;
+    });
+  }
+});
+
+/***/ }),
+/* 1 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+var reset = exports.reset = function reset(elm) {
+  elm.innerText = "?";
+  elm.className = elm.replace('disable', '');
+  elm.className = elm.replace('o', '');
+  elm.className = elm.replace('x', '');
+  elm.className = elm.replace('btn-primary', '');
+  elm.className = elm.replace('btn-info', '');
+};
+
+var hasClass = exports.hasClass = function hasClass(target, className) {
+  return new RegExp('(\\s|^)' + className + '(\\s|$)').test(target.className);
+};
+
+var resetItems = exports.resetItems = function resetItems() {
+  for (var i = 0; i < boxes.length; i++) {
+    reset(boxes[i]);
+  }
+};
+
+var checkO = exports.checkO = function checkO() {
+  if (document.getElementById("square1").className === 'o' && document.getElementById("square2").className === 'o' && document.getElementById("square3").className === 'o' || document.getElementById("square4").className === 'o' && document.getElementById("square5").className === 'o' && document.getElementById("square6").className === 'o' || document.getElementById("square7").className === 'o' && document.getElementById("square8").className === 'o' && document.getElementById("square9").className === 'o' || document.getElementById("square1").className === 'o' && document.getElementById("square4").className === 'o' && document.getElementById("square7").className === 'o' || document.getElementById("square2").className === 'o' && document.getElementById("square5").className === 'o' && document.getElementById("square8").className === 'o' || document.getElementById("square3").className === 'o' && document.getElementById("square6").className === 'o' && document.getElementById("square9").className === 'o' || document.getElementById("square1").className === 'o' && document.getElementById("square5").className === 'o' && document.getElementById("square9").className === 'o' || document.getElementById("square3").className === 'o' && document.getElementById("square5").className === 'o' && document.getElementById("square7").className === 'o') {
+    return true;
+  }
+  return false;
+};
+
+var checkX = exports.checkX = function checkX() {
+  if (document.getElementById("square1").className === 'x' && document.getElementById("square2").className === 'x' && document.getElementById("square3").className === 'x' || document.getElementById("square4").className === 'x' && document.getElementById("square5").className === 'x' && document.getElementById("square6").className === 'x' || document.getElementById("square7").className === 'x' && document.getElementById("square8").className === 'x' && document.getElementById("square9").className === 'x' || document.getElementById("square1").className === 'x' && document.getElementById("square4").className === 'x' && document.getElementById("square7").className === 'x' || document.getElementById("square2").className === 'x' && document.getElementById("square5").className === 'x' && document.getElementById("square8").className === 'x' || document.getElementById("square3").className === 'x' && document.getElementById("square6").className === 'x' && document.getElementById("square9").className === 'x' || document.getElementById("square1").className === 'x' && document.getElementById("square5").className === 'x' && document.getElementById("square9").className === 'x' || document.getElementById("square3").className === 'x' && document.getElementById("square5").className === 'x' && document.getElementById("square7").className === 'x') {
+    return true;
+  }
+  return false;
+};
+
+exports.default = reset;
+
 /***/ })
 /******/ ]);
 //# sourceMappingURL=main.bundle.js.map
