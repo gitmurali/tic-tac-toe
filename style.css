@@ -1,0 +1,88 @@
+.ticTacToe .disable {
+    text-transform: uppercase;
+    font-size: 30px;
+    font-family: Georgia, "Times New Roman", Times, serif
+}
+
+.ticTacToe #game li {
+    float: left;
+    padding: 0;
+    list-style: none;
+    text-align: center;
+    margin-bottom: 20px;
+    color: #fff;
+    height: 60px;
+    line-height: 60px;
+    font-size: 40px;
+    color: #ccc;
+    border: 1px solid #eee;
+}
+
+.ticTacToe #game li.disable {
+    color: #fff
+}
+
+.ticTacToe #game {
+    padding: 0;
+    clear: both
+}
+
+.new_span {
+    width: 226px;
+    margin: 0 auto;
+}
+
+.ticTacToe #reset {
+    padding: 5px 10px;
+    color: #fff;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 20px;
+    clear: both;
+    cursor: pointer;
+    float: left;
+    text-align: center;
+    text-transform: uppercase;
+    outline: none;
+    width: 204px
+}
+
+.input-prepend span.pre_text {
+    width: 55px
+}
+
+.input-prepend .span1 {
+    width: 93px
+}
+
+.input-prepend {
+    margin-bottom: 10px
+}
+
+.ticTacToe h1 {
+    text-align: center;
+    font-size: 28px
+}
+
+.ticTacToe li::-moz-selection {
+    background: none;
+    color: #000;
+}
+
+.ticTacToe li::-webkit-selection {
+    background: none;
+    color: #000;
+}
+
+.ticTacToe {
+    width: 220px;
+    margin: 0 auto
+}
+
+.input-append .win_times {
+    background: #fff;
+    width: 101px
+}
+
+.input-append .win_text {
+    width: 52px
+}

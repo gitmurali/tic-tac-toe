@@ -3,6 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <title>Tic tac toe</title>
+    <link rel="stylesheet" type="text/css" href="./node_modules/bootstrap/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="./style.css">
 </head>
 <body>
 <div class="ticTacToe">
@@ -11,18 +13,17 @@
             <h1 class="span3">Tic Tac Toe</h1>
         </div>
         <ul class="row" id="game">
-            <li id="one" class="btn span1"></li>
-            <li id="two" class="btn span1"></li>
-            <li id="three" class="btn span1"></li>
-            <li id="four" class="btn span1"></li>
-            <li id="five" class="btn span1"></li>
-            <li id="six" class="btn span1"></li>
-            <li id="seven" class="btn span1"></li>
-            <li id="eight" class="btn span1"></li>
-            <li id="nine" class="btn span1"></li>
+            <li id="square1" class="btn col-md-4">?</li>
+            <li id="square2" class="btn col-md-4">?</li>
+            <li id="square3" class="btn col-md-4">?</li>
+            <li id="square4" class="btn col-md-4">?</li>
+            <li id="square5" class="btn col-md-4">?</li>
+            <li id="square6" class="btn col-md-4">?</li>
+            <li id="square7" class="btn col-md-4">?</li>
+            <li id="square8" class="btn col-md-4">?</li>
+            <li id="square9" class="btn col-md-4">?</li>
         </ul>
-        <div class="clr">&nbsp;</div>
-        <div class="row"><a href="#" id="reset" class="btn-success btn span3">Restart</a></div>
+        <div><a href="#" id="reset" class="btn-danger btn span3">Reset</a></div>
     </div>
 </div>
 </body>
