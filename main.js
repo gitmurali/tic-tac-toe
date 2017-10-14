@@ -16,29 +16,29 @@ document.addEventListener("DOMContentLoaded", () => {
       event.preventDefault();
       if (checkO() || checkX()) {
         reset(event.target);
-      } else if (count == 9) {
-        alert('tie');
-        reset(event.target);
+      } else if (count == 8) {
+        alert('Game over!');
+        reset(boxes[i]);
         count = 0
       } else if (hasClass(event.target, 'disable')) {
         alert('Already selected');
       } else if (count % 2 == 0) {
-        count++
+        count++;
+        event.target.innerText = x;
+        event.target.className += ' disable x btn-primary';
+        if (checkX()) {
+          alert('x wins');
+          count = 0;
+          x_win++;
+        }
+      } else {
+        count++;
         event.target.innerText = o;
-        event.target.className += ' disable o btn-primary';
+        event.target.className += ' disable o btn-info';
         if (checkO()) {
           alert('O wins');
           count = 0;
           o_win++;
-        }
-      } else {
-        count++
-        event.target.innerText = x;
-        event.target.className += ' disable x btn-info';
-        if (checkX()) {
-          alert('X wins');
-          count = 0;
-          x_win++;
         }
       }
 

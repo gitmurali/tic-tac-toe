@@ -1,4 +1,5 @@
 export const reset = elm => {
+  console.log('murali', elm);
   elm.innerText = "?";
   elm.className = elm.replace('disable', '');
   elm.className = elm.replace('o', '');
@@ -12,6 +13,7 @@ export const hasClass = (target, className) => {
 };
 
 export const resetItems = () => {
+  const boxes = document.querySelectorAll('#game li');
   for (var i = 0; i < boxes.length; i++) {
     reset(boxes[i]);
   }

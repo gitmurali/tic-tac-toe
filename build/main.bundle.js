@@ -87,29 +87,29 @@ document.addEventListener("DOMContentLoaded", function () {
       event.preventDefault();
       if ((0, _functions.checkO)() || (0, _functions.checkX)()) {
         (0, _functions2.default)(event.target);
-      } else if (count == 9) {
-        alert('tie');
-        (0, _functions2.default)(event.target);
+      } else if (count == 8) {
+        alert('Game over!');
+        (0, _functions2.default)(boxes[i]);
         count = 0;
       } else if ((0, _functions.hasClass)(event.target, 'disable')) {
         alert('Already selected');
       } else if (count % 2 == 0) {
         count++;
+        event.target.innerText = x;
+        event.target.className += ' disable x btn-primary';
+        if ((0, _functions.checkX)()) {
+          alert('x wins');
+          count = 0;
+          x_win++;
+        }
+      } else {
+        count++;
         event.target.innerText = o;
-        event.target.className += ' disable o btn-primary';
+        event.target.className += ' disable o btn-info';
         if ((0, _functions.checkO)()) {
           alert('O wins');
           count = 0;
           o_win++;
-        }
-      } else {
-        count++;
-        event.target.innerText = x;
-        event.target.className += ' disable x btn-info';
-        if ((0, _functions.checkX)()) {
-          alert('X wins');
-          count = 0;
-          x_win++;
         }
       }
     });
@@ -131,6 +131,7 @@ Object.defineProperty(exports, "__esModule", {
   value: true
 });
 var reset = exports.reset = function reset(elm) {
+  console.log('murali', elm);
   elm.innerText = "?";
   elm.className = elm.replace('disable', '');
   elm.className = elm.replace('o', '');
@@ -144,6 +145,7 @@ var hasClass = exports.hasClass = function hasClass(target, className) {
 };
 
 var resetItems = exports.resetItems = function resetItems() {
+  var boxes = document.querySelectorAll('#game li');
   for (var i = 0; i < boxes.length; i++) {
     reset(boxes[i]);
   }
