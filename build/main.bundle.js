@@ -76,33 +76,35 @@ var _functions2 = _interopRequireDefault(_functions);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
+// add on dom loaded
 document.addEventListener("DOMContentLoaded", function () {
   var x = "x";
   var o = "o";
-  var o_win = 0;
-  var x_win = 0;
   var count = 0;
+
+  // get all the boxes
   var boxes = document.querySelectorAll('#game li');
 
+  // loop boxes and attach click events.
   for (var i = 0; i < boxes.length; i++) {
+
+    // attach event on each box
     boxes[i].addEventListener('click', function (event) {
       event.preventDefault();
-      if ((0, _functions.checkO)() || (0, _functions.checkX)()) {
-        (0, _functions2.default)(event.target);
-      } else if (count == 8) {
-        alert('Game over!');
-        (0, _functions.resetItems)();
+      if (count == 8) {
+        alert('Game over!'); // game over if all boxes filled
+        (0, _functions2.default)();
         count = 0;
-      } else if ((0, _functions.hasClass)(event.target, 'disable')) {
-        alert('Already selected');
+      } else if (event.target.classList.contains('disable')) {
+        alert('Already selected'); // when clicked on already selected box
       } else if (count % 2 == 0) {
         count++;
         event.target.innerText = x;
         event.target.className += ' disable xBtn btn-primary';
         if ((0, _functions.checkX)()) {
           alert('x wins');
+          (0, _functions2.default)(); // reset boxes if x wins
           count = 0;
-          x_win++;
         }
       } else {
         count++;
@@ -110,13 +112,13 @@ document.addEventListener("DOMContentLoaded", function () {
         event.target.className += ' disable oBtn btn-info';
         if ((0, _functions.checkO)()) {
           alert('O wins');
+          (0, _functions2.default)(); // reset boxes if o wins
           count = 0;
-          o_win++;
         }
       }
     });
     document.getElementById("reset").addEventListener("click", function () {
-      (0, _functions.resetItems)();
+      (0, _functions2.default)(); // reset all boxes
       count = 0;
     });
   }
@@ -141,10 +143,6 @@ var reset = exports.reset = function reset(elm) {
   elm.className = elm.className.replace('btn-info', '');
 };
 
-var hasClass = exports.hasClass = function hasClass(target, className) {
-  return new RegExp('(\\s|^)' + className + '(\\s|$)').test(target.className);
-};
-
 var resetItems = exports.resetItems = function resetItems() {
   var boxes = document.querySelectorAll('#game li');
   for (var i = 0; i < boxes.length; i++) {
@@ -153,20 +151,20 @@ var resetItems = exports.resetItems = function resetItems() {
 };
 
 var checkO = exports.checkO = function checkO() {
-  if (document.getElementById("square1").className === 'o' && document.getElementById("square2").className === 'o' && document.getElementById("square3").className === 'o' || document.getElementById("square4").className === 'o' && document.getElementById("square5").className === 'o' && document.getElementById("square6").className === 'o' || document.getElementById("square7").className === 'o' && document.getElementById("square8").className === 'o' && document.getElementById("square9").className === 'o' || document.getElementById("square1").className === 'o' && document.getElementById("square4").className === 'o' && document.getElementById("square7").className === 'o' || document.getElementById("square2").className === 'o' && document.getElementById("square5").className === 'o' && document.getElementById("square8").className === 'o' || document.getElementById("square3").className === 'o' && document.getElementById("square6").className === 'o' && document.getElementById("square9").className === 'o' || document.getElementById("square1").className === 'o' && document.getElementById("square5").className === 'o' && document.getElementById("square9").className === 'o' || document.getElementById("square3").className === 'o' && document.getElementById("square5").className === 'o' && document.getElementById("square7").className === 'o') {
+  if (document.getElementById("square1").classList.contains('oBtn') && document.getElementById("square2").classList.contains('oBtn') && document.getElementById("square3").classList.contains('oBtn') || document.getElementById("square4").classList.contains('oBtn') && document.getElementById("square5").classList.contains('oBtn') && document.getElementById("square6").classList.contains('oBtn') || document.getElementById("square7").classList.contains('oBtn') && document.getElementById("square8").classList.contains('oBtn') && document.getElementById("square9").classList.contains('oBtn') || document.getElementById("square1").classList.contains('oBtn') && document.getElementById("square4").classList.contains('oBtn') && document.getElementById("square7").classList.contains('oBtn') || document.getElementById("square2").classList.contains('oBtn') && document.getElementById("square5").classList.contains('oBtn') && document.getElementById("square8").classList.contains('oBtn') || document.getElementById("square3").classList.contains('oBtn') && document.getElementById("square6").classList.contains('oBtn') && document.getElementById("square9").classList.contains('oBtn')) {
     return true;
   }
   return false;
 };
 
 var checkX = exports.checkX = function checkX() {
-  if (document.getElementById("square1").className === 'x' && document.getElementById("square2").className === 'x' && document.getElementById("square3").className === 'x' || document.getElementById("square4").className === 'x' && document.getElementById("square5").className === 'x' && document.getElementById("square6").className === 'x' || document.getElementById("square7").className === 'x' && document.getElementById("square8").className === 'x' && document.getElementById("square9").className === 'x' || document.getElementById("square1").className === 'x' && document.getElementById("square4").className === 'x' && document.getElementById("square7").className === 'x' || document.getElementById("square2").className === 'x' && document.getElementById("square5").className === 'x' && document.getElementById("square8").className === 'x' || document.getElementById("square3").className === 'x' && document.getElementById("square6").className === 'x' && document.getElementById("square9").className === 'x' || document.getElementById("square1").className === 'x' && document.getElementById("square5").className === 'x' && document.getElementById("square9").className === 'x' || document.getElementById("square3").className === 'x' && document.getElementById("square5").className === 'x' && document.getElementById("square7").className === 'x') {
+  if (document.getElementById("square1").classList.contains('xBtn') && document.getElementById("square2").classList.contains('xBtn') && document.getElementById("square3").classList.contains('xBtn') || document.getElementById("square4").classList.contains('xBtn') && document.getElementById("square5").classList.contains('xBtn') && document.getElementById("square6").classList.contains('xBtn') || document.getElementById("square7").classList.contains('xBtn') && document.getElementById("square8").classList.contains('xBtn') && document.getElementById("square9").classList.contains('xBtn') || document.getElementById("square1").classList.contains('xBtn') && document.getElementById("square4").classList.contains('xBtn') && document.getElementById("square7").classList.contains('xBtn') || document.getElementById("square2").classList.contains('xBtn') && document.getElementById("square5").classList.contains('xBtn') && document.getElementById("square8").classList.contains('xBtn') || document.getElementById("square3").classList.contains('xBtn') && document.getElementById("square6").classList.contains('xBtn') && document.getElementById("square9").classList.contains('xBtn')) {
     return true;
   }
   return false;
 };
 
-exports.default = reset;
+exports.default = resetItems;
 
 /***/ })
 /******/ ]);

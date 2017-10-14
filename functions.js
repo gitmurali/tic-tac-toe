@@ -7,10 +7,6 @@ export const reset = (elm) => {
   elm.className = elm.className.replace('btn-info', '');
 };
 
-export const hasClass = (target, className) => {
-  return new RegExp('(\\s|^)' + className + '(\\s|$)').test(target.className);
-};
-
 export const resetItems = () => {
   const boxes = document.querySelectorAll('#game li');
   for (var i = 0; i < boxes.length; i++) {
@@ -19,63 +15,51 @@ export const resetItems = () => {
 };
 
 export const checkO = () => {
-  if (document.getElementById("square1").className === 'o' &&
-    document.getElementById("square2").className === 'o' &&
-    document.getElementById("square3").className === 'o' ||
-    document.getElementById("square4").className === 'o' &&
-    document.getElementById("square5").className === 'o' &&
-    document.getElementById("square6").className === 'o' ||
-    document.getElementById("square7").className === 'o' &&
-    document.getElementById("square8").className === 'o' &&
-    document.getElementById("square9").className === 'o' ||
-    document.getElementById("square1").className === 'o' &&
-    document.getElementById("square4").className === 'o' &&
-    document.getElementById("square7").className === 'o' ||
-    document.getElementById("square2").className === 'o' &&
-    document.getElementById("square5").className === 'o' &&
-    document.getElementById("square8").className === 'o' ||
-    document.getElementById("square3").className === 'o' &&
-    document.getElementById("square6").className === 'o' &&
-    document.getElementById("square9").className === 'o' ||
-    document.getElementById("square1").className === 'o' &&
-    document.getElementById("square5").className === 'o' &&
-    document.getElementById("square9").className === 'o' ||
-    document.getElementById("square3").className === 'o' &&
-    document.getElementById("square5").className === 'o' &&
-    document.getElementById("square7").className === 'o') {
-    return true;
+  if (document.getElementById("square1").classList.contains('oBtn') &&
+    document.getElementById("square2").classList.contains('oBtn') &&
+    document.getElementById("square3").classList.contains('oBtn') ||
+    document.getElementById("square4").classList.contains('oBtn') &&
+    document.getElementById("square5").classList.contains('oBtn') &&
+    document.getElementById("square6").classList.contains('oBtn') ||
+    document.getElementById("square7").classList.contains('oBtn') &&
+    document.getElementById("square8").classList.contains('oBtn') &&
+    document.getElementById("square9").classList.contains('oBtn') ||
+    document.getElementById("square1").classList.contains('oBtn') &&
+    document.getElementById("square4").classList.contains('oBtn') &&
+    document.getElementById("square7").classList.contains('oBtn') ||
+    document.getElementById("square2").classList.contains('oBtn') &&
+    document.getElementById("square5").classList.contains('oBtn') &&
+    document.getElementById("square8").classList.contains('oBtn') ||
+    document.getElementById("square3").classList.contains('oBtn') &&
+    document.getElementById("square6").classList.contains('oBtn') &&
+    document.getElementById("square9").classList.contains('oBtn')) {
+       return true;
   }
   return false;
 }
 
 export const checkX = () => {
-  if (document.getElementById("square1").className === 'x' &&
-    document.getElementById("square2").className === 'x' &&
-    document.getElementById("square3").className === 'x' ||
-    document.getElementById("square4").className === 'x' &&
-    document.getElementById("square5").className === 'x' &&
-    document.getElementById("square6").className === 'x' ||
-    document.getElementById("square7").className === 'x' &&
-    document.getElementById("square8").className === 'x' &&
-    document.getElementById("square9").className === 'x' ||
-    document.getElementById("square1").className === 'x' &&
-    document.getElementById("square4").className === 'x' &&
-    document.getElementById("square7").className === 'x' ||
-    document.getElementById("square2").className === 'x' &&
-    document.getElementById("square5").className === 'x' &&
-    document.getElementById("square8").className === 'x' ||
-    document.getElementById("square3").className === 'x' &&
-    document.getElementById("square6").className === 'x' &&
-    document.getElementById("square9").className === 'x' ||
-    document.getElementById("square1").className === 'x' &&
-    document.getElementById("square5").className === 'x' &&
-    document.getElementById("square9").className === 'x' ||
-    document.getElementById("square3").className === 'x' &&
-    document.getElementById("square5").className === 'x' &&
-    document.getElementById("square7").className === 'x') {
+  if (document.getElementById("square1").classList.contains('xBtn') &&
+    document.getElementById("square2").classList.contains('xBtn') &&
+    document.getElementById("square3").classList.contains('xBtn') ||
+    document.getElementById("square4").classList.contains('xBtn') &&
+    document.getElementById("square5").classList.contains('xBtn') &&
+    document.getElementById("square6").classList.contains('xBtn') ||
+    document.getElementById("square7").classList.contains('xBtn') &&
+    document.getElementById("square8").classList.contains('xBtn') &&
+    document.getElementById("square9").classList.contains('xBtn') ||
+    document.getElementById("square1").classList.contains('xBtn') &&
+    document.getElementById("square4").classList.contains('xBtn') &&
+    document.getElementById("square7").classList.contains('xBtn') ||
+    document.getElementById("square2").classList.contains('xBtn') &&
+    document.getElementById("square5").classList.contains('xBtn') &&
+    document.getElementById("square8").classList.contains('xBtn') ||
+    document.getElementById("square3").classList.contains('xBtn') &&
+    document.getElementById("square6").classList.contains('xBtn') &&
+    document.getElementById("square9").classList.contains('xBtn')) {
     return true;
   }
   return false;
 }
 
-export default reset;
+export default resetItems;
