@@ -1,0 +1,22 @@
+{
+  "name": "tic-tac-toe",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/gitmurali/tic-tac-toe.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/gitmurali/tic-tac-toe/issues"
+  },
+  "homepage": "https://github.com/gitmurali/tic-tac-toe#readme",
+  "dependencies": {
+    "bootstrap": "^3.3.7"
+  }
+}
